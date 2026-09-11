@@ -1,0 +1,545 @@
+/* ==========================================================================
+   DeGê Lanches — estilos gerais
+   ========================================================================== */
+
+:root {
+    --creme: #fbf1dd;
+    --roxo: #57104f;
+    --roxo-escuro: #3f0b3a;
+    --amarelo: #f0b429;
+    --amarelo-escuro: #dd9f1a;
+    --preto: #181818;
+    --cinza: #55524d;
+    --cinza-claro: #8a867d;
+    --branco: #ffffff;
+
+    --fonte-titulo: "Baloo 2", "Poppins", sans-serif;
+    --fonte-corpo: "Poppins", sans-serif;
+
+    --raio-card: 22px;
+    --sombra-card: 0 10px 30px rgba(24, 24, 24, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--creme);
+    color: var(--preto);
+    font-family: var(--fonte-corpo);
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+button {
+    font-family: var(--fonte-corpo);
+    cursor: pointer;
+    border: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ==========================================================================
+   Cabeçalho
+   ========================================================================== */
+
+.cabecalho {
+    border-bottom: 2px solid var(--preto);
+    background-color: var(--creme);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav_bar {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.logo img {
+    height: 70px;
+    width: auto;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    gap: 44px;
+}
+
+.links a,
+.links p {
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--roxo);
+}
+
+.links a {
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.links a:hover {
+    color: var(--amarelo-escuro);
+}
+
+.links p {
+    color: var(--cinza-claro);
+    cursor: default;
+}
+
+.btn-peca-aqui {
+    background-color: var(--amarelo);
+    color: var(--preto);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 12px 26px;
+    border-radius: 12px;
+    transition: transform 0.15s ease, background-color 0.2s ease;
+}
+
+.btn-peca-aqui:hover {
+    background-color: var(--amarelo-escuro);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+
+.conteudo {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 64px;
+    padding: 90px 0 100px;
+}
+
+.hero-texto {
+    flex: 1 1 480px;
+    max-width: 560px;
+}
+
+.texto {
+    font-family: var(--fonte-corpo);
+    font-weight: 800;
+    font-size: clamp(2.1rem, 3.6vw, 2.9rem);
+    line-height: 1.25;
+    color: var(--preto);
+}
+
+.texto .destaque {
+    color: var(--roxo);
+}
+
+.descricao {
+    margin-top: 26px;
+    color: var(--cinza);
+    font-size: 1.05rem;
+    max-width: 480px;
+}
+
+.opcoes {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 34px;
+}
+
+/* Os dois links de "Ver cardápio" e telefone são estilizados como botões */
+.opcoes a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--amarelo);
+    color: var(--preto);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 16px 30px;
+    border-radius: 14px;
+    transition: transform 0.15s ease, background-color 0.2s ease;
+}
+
+.opcoes a:hover {
+    background-color: var(--amarelo-escuro);
+    transform: translateY(-2px);
+}
+
+.icone-telefone {
+    margin-right: 6px;
+}
+
+
+.hero-imagem {
+    position: relative;
+    flex: 1 1 480px;
+    max-width: 640px;
+    aspect-ratio: 4 / 3.1;
+    background: linear-gradient(155deg, var(--roxo) 0%, var(--roxo-escuro) 100%);
+    border-radius: 260px 60px 260px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.foto_exibicao {
+    max-width: 78%;
+    max-height: 82%;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 25px rgba(0, 0, 0, 0.35));
+}
+
+/* ==========================================================================
+   Cardápio
+   ========================================================================== */
+
+.cardapio-secao {
+    padding: 60px 0 100px;
+    border-top: 2px solid var(--preto);
+    scroll-margin-top: 110px; /* compensa o cabeçalho fixo ao rolar até aqui */
+}
+
+.cardapio-titulo {
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+.cardapio-titulo h1 {
+    font-family: var(--fonte-titulo);
+    font-weight: 700;
+    font-size: 1.9rem;
+    color: var(--preto);
+}
+
+.cardapio-titulo h2 {
+    font-family: var(--fonte-titulo);
+    font-weight: 700;
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    color: var(--preto);
+    margin-top: 6px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 26px;
+}
+
+.produto-card {
+    position: relative;
+    background-color: var(--branco);
+    border-radius: var(--raio-card);
+    box-shadow: var(--sombra-card);
+    padding: 26px 20px 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.produto-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 34px rgba(24, 24, 24, 0.12);
+}
+
+.produto-card img {
+    width: 100%;
+    height: 130px;
+    object-fit: contain;
+    margin-bottom: 18px;
+}
+
+.badge-favorito {
+    position: absolute;
+    top: -14px;
+    right: 18px;
+    width: 42px;
+    height: 42px;
+    background-color: var(--amarelo);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--branco);
+    font-size: 1.2rem;
+    box-shadow: 0 6px 14px rgba(240, 180, 41, 0.45);
+}
+
+.nome-produto {
+    font-family: var(--fonte-titulo);
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--preto);
+}
+
+.descricao-produto {
+    margin-top: 10px;
+    color: var(--cinza-claro);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    min-height: 62px;
+}
+
+.cinco-estrelas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 14px;
+}
+
+.cinco-estrelas img {
+    width: 90px;
+    height: auto;
+    margin: 0;
+}
+
+.cinco-estrelas p {
+    font-size: 0.8rem;
+    color: var(--cinza-claro);
+}
+
+.preco-linha {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.preco {
+    font-family: var(--fonte-corpo);
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--preto);
+}
+
+.carrinho {
+    font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   Contato
+   ========================================================================== */
+
+.contato-secao {
+    padding: 20px 0 100px;
+    scroll-margin-top: 110px; /* compensa o cabeçalho fixo ao rolar até aqui */
+}
+
+.contato-caixa {
+    background: linear-gradient(155deg, var(--roxo) 0%, var(--roxo-escuro) 100%);
+    border-radius: 40px;
+    padding: 60px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.contato-texto h1 {
+    font-family: var(--fonte-titulo);
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--amarelo);
+}
+
+.contato-texto h2 {
+    font-family: var(--fonte-titulo);
+    font-weight: 700;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    color: var(--branco);
+    margin-top: 4px;
+}
+
+.contato-descricao {
+    color: #e9dced;
+    margin-top: 14px;
+    max-width: 420px;
+    font-size: 0.98rem;
+}
+
+.contato-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.contato-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: rgba(255, 255, 255, 0.08);
+    color: var(--branco);
+    font-weight: 600;
+    padding: 14px 24px;
+    border-radius: 14px;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.contato-item:hover {
+    background-color: var(--amarelo);
+    color: var(--preto);
+    transform: translateY(-2px);
+}
+
+.contato-icone {
+    font-size: 1.2rem;
+}
+
+/* ==========================================================================
+   Rodapé
+   ========================================================================== */
+
+.rodape {
+    border-top: 2px solid var(--preto);
+    padding: 26px 40px;
+    max-width: 1360px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.rodape p {
+    color: var(--cinza);
+    font-size: 0.95rem;
+}
+
+.redes-sociais-rodape {
+    display: flex;
+    gap: 12px;
+}
+
+.redes-sociais-rodape .icone-social-ig,
+.redes-sociais-rodape .icone-social-zap {
+    width: 40px;
+    height: 40px;
+}
+
+.redes-sociais-rodape .icone-social-ig img,
+.redes-sociais-rodape .icone-social-zap img {
+    width: 18px;
+    height: 18px;
+}
+
+/* ==========================================================================
+   Responsivo
+   ========================================================================== */
+
+@media (max-width: 1180px) {
+    .container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .nav_bar {
+        padding: 16px 24px;
+    }
+
+    .links {
+        gap: 22px;
+    }
+
+    .links p {
+        font-size: 0.9rem;
+    }
+
+    .hero {
+        flex-direction: column;
+        padding: 50px 0 70px;
+    }
+
+    .hero-texto {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .descricao {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .opcoes {
+        justify-content: center;
+    }
+
+    .redes-sociais {
+        justify-content: center;
+    }
+
+    .hero-imagem {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .contato-caixa {
+        flex-direction: column;
+        text-align: center;
+        padding: 44px 30px;
+    }
+
+    .contato-descricao {
+        max-width: 100%;
+    }
+
+    .contato-item {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 720px) {
+    .links {
+        display: none;
+    }
+
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .rodape {
+        flex-direction: column;
+        gap: 14px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .conteudo {
+        padding: 0 20px;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+    }
+}

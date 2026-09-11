@@ -1,0 +1,138 @@
+/* Reseta margem, preenchimento e box-sizing de todos os elementos */
+*{
+  margin: 0;                         /* remove margem padrão do navegador */
+  padding: 0;                        /* remove preenchimento padrão do navegador */
+  box-sizing: border-box;            /* faz padding e border entrarem na largura total do elemento */
+}
+
+/* Estilo geral da página */
+body{
+  min-height: 100vh;                 /* garante que o body ocupe a altura toda da tela */
+  background: #1c1c1c;               /* cor de fundo escura por trás do cartão */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; /* fonte padrão do sistema */
+  display: flex;                     /* ativa flexbox para centralizar o cartão */
+  align-items: center;               /* centraliza o cartão verticalmente */
+  justify-content: center;           /* centraliza o cartão horizontalmente */
+  padding: 40px 16px;                /* respiro nas bordas em telas pequenas */
+}
+
+/* Cartão branco que contém o formulário */
+.card{
+  width: 100%;                       /* ocupa toda a largura disponível até o max-width */
+  max-width: 480px;                  /* impede o cartão de ficar largo demais em telas grandes */
+  background: #fbf8ee;               /* cor de fundo clara do cartão */
+  border-radius: 6px;                /* arredonda os cantos do cartão */
+  padding: 32px 32px 40px;           /* espaçamento interno do cartão */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06); /* sombra sutil para dar profundidade */
+}
+
+/* Título "Criar conta" */
+.card h1{
+  font-size: 20px;                   /* tamanho da fonte do título */
+  font-weight: 700;                  /* deixa o título em negrito */
+  color: #1a1a1a;                    /* cor do texto do título */
+  margin-bottom: 24px;               /* espaço abaixo do título, antes do formulário */
+}
+
+/* Formulário: organiza os grupos (.row) em coluna, um embaixo do outro */
+form{
+  display: flex;                     /* ativa flexbox no formulário */
+  flex-direction: column;            /* empilha as linhas (.row) verticalmente */
+  gap: 20px;                         /* espaço entre cada linha do formulário */
+}
+
+/* Linha que agrupa dois campos lado a lado (ex: nome e sobrenome) */
+.row{
+  display: grid;                     /* ativa grid para dividir em colunas */
+  grid-template-columns: 1fr 1fr;    /* cria duas colunas de largura igual */
+  gap: 20px;                         /* espaço entre as duas colunas */
+}
+
+/* Container de cada campo (label + input) */
+.field{
+  display: flex;                     /* ativa flexbox no campo */
+  flex-direction: column;            /* empilha label em cima e input embaixo */
+  gap: 8px;                          /* espaço entre o label e o input */
+}
+
+/* Texto do label acima de cada campo */
+.field label{
+  font-size: 13px;                   /* tamanho da fonte do label */
+  font-weight: 700;                  /* deixa o label em negrito */
+  color: #1a1a1a;                    /* cor do texto do label */
+}
+
+/* Estilo dos campos de texto, e-mail e senha */
+.field input{
+  width: 100%;                       /* input ocupa toda a largura do campo */
+  padding: 11px 14px;                /* espaçamento interno do input */
+  font-size: 14px;                   /* tamanho da fonte digitada */
+  border: 1px solid #c9c3b0;         /* borda fina e discreta */
+  border-radius: 4px;                /* cantos levemente arredondados */
+  background: #fff;                  /* fundo branco do campo */
+  color: #1a1a1a;                    /* cor do texto digitado */
+  outline: none;                     /* remove o contorno azul padrão do navegador */
+  transition: border-color .15s ease, box-shadow .15s ease; /* suaviza a mudança visual no foco */
+}
+
+/* Cor do texto de exemplo (placeholder) dentro dos inputs */
+.field input::placeholder{
+  color: #a3a3a3;                    /* cinza claro para diferenciar do texto real */
+}
+
+/* Estado do input quando o usuário clica/seleciona ele */
+.field input:focus{
+  border-color: #8a8a8a;             /* escurece a borda no foco */
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.06); /* halo sutil ao redor do campo */
+}
+
+/* Estilo do select de gênero, reaproveitando a aparência dos inputs */
+.field select{
+  width: 100%;                       /* select ocupa toda a largura do campo */
+  padding: 11px 14px;                /* mesmo espaçamento interno dos inputs */
+  font-size: 14px;                   /* mesmo tamanho de fonte dos inputs */
+  border: 1px solid #c9c3b0;         /* mesma borda dos inputs, para manter consistência */
+  border-radius: 4px;                /* cantos levemente arredondados */
+  background: #fff;                  /* fundo branco igual aos inputs */
+  color: #1a1a1a;                    /* cor do texto selecionado */
+  outline: none;                     /* remove o contorno azul padrão do navegador */
+}
+
+/* Cor especial para quando a opção "Selecione" (vazia) ainda está marcada */
+.field select:invalid{
+  color: #a3a3a3;                    /* deixa o texto "Selecione" acinzentado, como um placeholder */
+}
+
+/* Linha que contém o botão de enviar o formulário */
+.submit-row{
+  margin-top: 8px;                   /* espaço entre o último campo e o botão */
+}
+
+/* Botão "Criar conta" */
+button.submit{
+  width: 100%;                       /* botão ocupa toda a largura do cartão */
+  padding: 12px 14px;                /* espaçamento interno do botão */
+  font-size: 14px;                   /* tamanho da fonte do texto do botão */
+  font-weight: 700;                  /* texto do botão em negrito */
+  color: #fff;                       /* cor do texto do botão */
+  background: #1a1a1a;               /* cor de fundo escura do botão */
+  border: none;                      /* remove a borda padrão do botão */
+  border-radius: 4px;                /* cantos levemente arredondados */
+  cursor: pointer;                   /* mostra a mãozinha ao passar o mouse */
+  transition: opacity .15s ease;     /* suaviza o efeito de hover */
+}
+
+/* Efeito ao passar o mouse por cima do botão */
+button.submit:hover{
+  opacity: 0.88;                     /* deixa o botão levemente mais claro no hover */
+}
+
+/* Ajustes para telas pequenas (celular) */
+@media (max-width: 520px){
+  .card{
+    padding: 24px 20px 28px;         /* reduz o espaçamento interno do cartão no mobile */
+  }
+  .row{
+    grid-template-columns: 1fr;      /* empilha os dois campos da linha em uma única coluna */
+  }
+}
